@@ -11,10 +11,6 @@ class TestCase extends Orchestra
     public function setUp(): void
     {
         parent::setUp();
-
-        Factory::guessFactoryNamesUsing(
-            fn (string $modelName) => 'Konnco\\Inadiv\\Database\\Factories\\'.class_basename($modelName).'Factory'
-        );
     }
 
     protected function getPackageProviders($app)
@@ -28,9 +24,16 @@ class TestCase extends Orchestra
     {
         config()->set('database.default', 'testing');
 
-        /*
-        include_once __DIR__.'/../database/migrations/create_laravel-inadiv_table.php.stub';
-        (new \CreatePackageTable())->up();
-        */
+        include_once __DIR__.'/../database/migrations/create_provinces_table.php.stub';
+        (new \CreateProvincesTable())->up();
+
+        include_once __DIR__.'/../database/migrations/create_cities_table.php.stub';
+        (new \CreateCitiesTable())->up();
+
+        include_once __DIR__.'/../database/migrations/create_districts_table.php.stub';
+        (new \CreateDistrictsTable())->up();
+
+        include_once __DIR__.'/../database/migrations/create_subdistricts_table.php.stub';
+        (new \CreateSubdistrictsTable())->up();
     }
 }

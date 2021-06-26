@@ -16,6 +16,9 @@ class InadivServiceProvider extends PackageServiceProvider
          */
         $package
             ->name('laravel-inadiv')
-            ->hasMigration('create_laravel-inadiv_table');
+            ->hasMigration('create_provinces_table')
+            ->hasMigration('create_cities_table')
+            ->hasMigration('create_districts_table')
+            ->hasMigration('create_subdistricts_table');
     }
 }
