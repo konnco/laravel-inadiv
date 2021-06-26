@@ -4,6 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
+use Konnco\Inadiv\RawDataGetter;
 
 class CreateCitiesTable extends Migration
 {
@@ -15,9 +16,14 @@ class CreateCitiesTable extends Migration
             $table->unsignedBigInteger('province_id');
             $table->timestamps();
         });
-    }
 
-    public function down() {
+        // Get Data
+        $cities = RawDataGetter::getCities();
 
+        // Insert Data to Database
+        $cities = collect($cities);
+        foreach($cities->chunk(50) as $chunkedCities){
+            DB::table('cities')->insert($chunkedCities->toArray());
+        }
     }
 };

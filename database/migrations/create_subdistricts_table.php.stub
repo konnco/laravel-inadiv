@@ -4,6 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
+use Konnco\Inadiv\RawDataGetter;
 
 class CreateSubdistrictsTable extends Migration
 {
@@ -15,5 +16,14 @@ class CreateSubdistrictsTable extends Migration
             $table->unsignedBigInteger('district_id');
             $table->timestamps();
         });
+
+        // Get Data
+        $districts = RawDataGetter::getSubdistricts();
+
+        // Insert Data to Database
+        $districts = collect($districts);
+        foreach($districts->chunk(50) as $chunkedDistricts){
+            DB::table('subdistricts')->insert($chunkedDistricts->toArray());
+        }
     }
 };
