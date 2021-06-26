@@ -3,12 +3,18 @@
 namespace Konnco\Inadiv\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
-class Province extends Model
+class City extends Model
 {
-    public function city(): HasMany
+    public function province(): BelongsTo
     {
-        return $this->hasMany(Subscription::class);
+        return $this->belongsTo(Province::class);
+    }
+
+    public function districts(): HasMany
+    {
+        return $this->hasMany(District::class);
     }
 }

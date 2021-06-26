@@ -7,8 +7,8 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Province extends Model
 {
-    public function city(): HasMany
+    public function cities(): HasMany
     {
-        return $this->hasMany(Subscription::class);
+        return $this->hasMany(City::class);
     }
 }
