@@ -2,9 +2,9 @@
 
 namespace Konnco\Inadiv;
 
+use Konnco\Inadiv\Commands\InadivCommand;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
-use Konnco\Inadiv\Commands\InadivCommand;
 
 class InadivServiceProvider extends PackageServiceProvider
 {
