@@ -8,11 +8,8 @@ return new class extends Migration
 {
     public function up()
     {
-        Schema::create('laravel-inadiv_table', function (Blueprint $table) {
+        Schema::create('provinces', function (Blueprint $table) {
             $table->id();
-
-            // add fields
-
             $table->timestamps();
         });
     }
