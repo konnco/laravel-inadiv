@@ -1,12 +1,12 @@
 <?php
 
-namespace VendorName\Skeleton\Commands;
+namespace Konnco\Inadiv\Commands;
 
 use Illuminate\Console\Command;
 
-class SkeletonCommand extends Command
+class InadivCommand extends Command
 {
-    public $signature = 'skeleton';
+    public $signature = 'laravel-inadiv';
 
     public $description = 'My command';
 
