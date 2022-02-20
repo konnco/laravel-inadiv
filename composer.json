@@ -16,8 +16,8 @@
         }
     ],
     "require": {
-        "php": "^7.3|^8.0",
-        "illuminate/contracts": "^8.37",
+        "php": "^7.4|^8.0|^9.0",
+        "illuminate/contracts": "^9.0",
         "parsecsv/php-parsecsv": "^1.3",
         "spatie/laravel-package-tools": "^1.4.3"
     },
